@@ -1,0 +1,45 @@
+package com.job.tracking.controller;
+
+import com.job.tracking.entity.TaskEntity;
+import com.job.tracking.mapping.TaskMapper;
+import com.job.tracking.model.Task;
+import com.job.tracking.model.TaskResponse;
+import com.job.tracking.repository.TasksRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@RestController
+@RequestMapping(value = "/tasks")
+public class TasksController {
+
+    @Autowired
+    private TasksRepository tasksRepository;
+
+    @Autowired
+    private TaskMapper taskMapper;
+
+    @GetMapping
+    public @ResponseBody
+    TaskResponse getAllTasks() {
+        TaskResponse taskResponse = new TaskResponse();
+        List<Task> tasks = new ArrayList<>();
+        List<TaskEntity> taskEntities = tasksRepository.findAll();
+        for (TaskEntity taskEntity : taskEntities) {
+            tasks.add(taskMapper.mapToTask(taskEntity));
+        }
+        taskResponse.setTaskList(tasks);
+        return taskResponse;
+    }
+
+    @PostMapping
+    public void createTask(@RequestBody Task task) {
+
+        TaskEntity taskEntity = taskMapper.mapToTaskEntity(task);
+        tasksRepository.save(taskEntity);
+    }
+    public void deleteTask (@RequestParam Integer taskNumber)
+}

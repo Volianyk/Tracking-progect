@@ -1,12 +1,12 @@
 package com.job.tracking.controller;
 
+import com.job.tracking.dto.UpdateTaskDTO;
 import com.job.tracking.entity.TaskEntity;
 import com.job.tracking.mapping.TaskMapper;
 import com.job.tracking.model.Task;
 import com.job.tracking.model.TaskResponse;
 import com.job.tracking.repository.TasksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -41,5 +41,18 @@ public class TasksController {
         TaskEntity taskEntity = taskMapper.mapToTaskEntity(task);
         tasksRepository.save(taskEntity);
     }
-    public void deleteTask (@RequestParam Integer taskNumber)
+
+    @DeleteMapping
+    public void deleteTask(@RequestParam Integer taskNumber) {
+        TaskEntity taskToDelete = tasksRepository.findByTaskNumber(taskNumber);
+        tasksRepository.delete(taskToDelete);
+    }
+
+    @PutMapping
+    public Task updateTask (@RequestParam Integer taskNumber, @RequestBody UpdateTaskDTO updateTaskDTO){
+        TaskEntity taskToUpdate = tasksRepository.findByTaskNumber(taskNumber);
+        TaskEntity updatedTask = taskMapper.mapToTaskEntity(taskToUpdate, updateTaskDTO);
+        tasksRepository.save(updatedTask);
+        return taskMapper.mapToTask(updatedTask);
+    }
 }

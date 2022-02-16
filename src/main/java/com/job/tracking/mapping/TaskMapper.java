@@ -1,5 +1,6 @@
 package com.job.tracking.mapping;
 
+import com.job.tracking.dto.UpdateTaskDTO;
 import com.job.tracking.entity.TaskEntity;
 import com.job.tracking.model.Task;
 import org.springframework.stereotype.Component;
@@ -28,4 +29,10 @@ public class TaskMapper {
         return taskEntity;
     }
 
+    public TaskEntity mapToTaskEntity(TaskEntity originalEntity, UpdateTaskDTO updateTaskDTO) {
+        originalEntity.setTaskDescription(updateTaskDTO.getTaskDescription());
+        originalEntity.setTaskStatus(updateTaskDTO.getTaskStatus());
+        originalEntity.setResponsiblePerson(updateTaskDTO.getResponsiblePerson());
+        return originalEntity;
+    }
 }

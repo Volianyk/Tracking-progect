@@ -7,6 +7,7 @@ import com.job.tracking.model.Task;
 import com.job.tracking.model.TaskResponse;
 import com.job.tracking.repository.TasksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class TasksController {
         return taskResponse;
     }
 
+    @ResponseStatus(HttpStatus.OK)
     @PostMapping
     public void createTask(@RequestBody Task task) {
 
@@ -44,14 +46,7 @@ public class TasksController {
     }
 
     private Integer calculateTaskNumber() {
-        List<TaskEntity> all = tasksRepository.findAll();
-        int nextTaskNumber = 1;
-        for (TaskEntity currentTaskEntity : all) {
-            if (nextTaskNumber <= currentTaskEntity.getTaskNumber()) {
-                nextTaskNumber=currentTaskEntity.getTaskNumber()+1;
-            }
-        }
-        return nextTaskNumber;
+        return tasksRepository.findFirstByOrderByTaskNumberDesc().getTaskNumber() + 1;
     }
 
     @DeleteMapping

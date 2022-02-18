@@ -39,7 +39,19 @@ public class TasksController {
     public void createTask(@RequestBody Task task) {
 
         TaskEntity taskEntity = taskMapper.mapToTaskEntity(task);
+        taskEntity.setTaskNumber(calculateTaskNumber());
         tasksRepository.save(taskEntity);
+    }
+
+    private Integer calculateTaskNumber() {
+        List<TaskEntity> all = tasksRepository.findAll();
+        int nextTaskNumber = 1;
+        for (TaskEntity currentTaskEntity : all) {
+            if (nextTaskNumber <= currentTaskEntity.getTaskNumber()) {
+                nextTaskNumber=currentTaskEntity.getTaskNumber()+1;
+            }
+        }
+        return nextTaskNumber;
     }
 
     @DeleteMapping
@@ -49,10 +61,13 @@ public class TasksController {
     }
 
     @PutMapping
-    public Task updateTask (@RequestParam Integer taskNumber, @RequestBody UpdateTaskDTO updateTaskDTO){
+    public Task updateTask(@RequestParam Integer taskNumber, @RequestBody UpdateTaskDTO updateTaskDTO) {
         TaskEntity taskToUpdate = tasksRepository.findByTaskNumber(taskNumber);
         TaskEntity updatedTask = taskMapper.mapToTaskEntity(taskToUpdate, updateTaskDTO);
         tasksRepository.save(updatedTask);
         return taskMapper.mapToTask(updatedTask);
     }
+
+
 }
+

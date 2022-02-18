@@ -23,7 +23,7 @@ public class TaskMapper {
         TaskEntity taskEntity = new TaskEntity();
         taskEntity.setCreator(task.getCreator());
         taskEntity.setTaskDescription(task.getTaskDescription());
-        taskEntity.setTaskNumber(task.getTaskNumber());
+        //taskEntity.setTaskNumber(task.getTaskNumber());
         taskEntity.setTaskStatus(task.getTaskStatus());
         taskEntity.setResponsiblePerson(task.getResponsiblePerson());
         return taskEntity;

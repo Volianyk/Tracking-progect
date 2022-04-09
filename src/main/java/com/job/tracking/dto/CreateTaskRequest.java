@@ -1,14 +1,12 @@
-package com.job.tracking.model;
+package com.job.tracking.dto;
 
+import com.job.tracking.model.Person;
 import lombok.Data;
 
 @Data
-public class Task {
-
+public class CreateTaskRequest {
     private String taskDescription;
     private Person creator;
     private Person responsiblePerson;
     private String taskStatus;
-    private Integer taskNumber;
-
 }

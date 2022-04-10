@@ -45,11 +45,7 @@ public class TasksController {
     @GetMapping("/{taskNumber}")
     public @ResponseBody
     GetTaskResponse getTask(@PathVariable Integer taskNumber) {
-        log.trace("A TRACE Message");
-        log.debug("A DEBUG Message");
         log.info("Get task by task number: " + taskNumber);
-        log.warn("A WARN Message");
-        log.error("An ERROR Message");
 
         GetTaskResponse getTaskResponse = new GetTaskResponse();
         Task task = taskService.getTask(taskNumber);
@@ -61,19 +57,21 @@ public class TasksController {
     @PostMapping
     public void createTask(@RequestBody CreateTaskRequest createTaskRequest) {
         log.info("New task was created");
+
         taskService.createTask(taskMapper.mapCreateTaskRequestToTask(createTaskRequest));
     }
 
     @DeleteMapping
     public void deleteTask(@RequestParam Integer taskNumber) {
         log.info("Task with number: " + taskNumber + " was deleted");
+
         taskService.deleteTask(taskNumber);
     }
 
     @PutMapping
     public Task updateTask(@RequestParam Integer taskNumber, @RequestBody UpdateTaskRequest updateTaskRequest) {
         log.info("Task with number: " + taskNumber + " was updated");
+
         return taskService.updateTask(taskNumber, updateTaskRequest);
     }
 }
-

@@ -35,13 +35,8 @@ public class TaskService {
         return task;
     }
 
-    private Integer calculateTaskNumber() {
-        return tasksRepository.findFirstByOrderByTaskNumberDesc().getTaskNumber() + 1;
-    }
-
     public void createTask(Task task) {
         TaskEntity taskEntity = taskMapper.mapToTaskEntity(task);
-        taskEntity.setTaskNumber(calculateTaskNumber());
         tasksRepository.save(taskEntity);
     }
 

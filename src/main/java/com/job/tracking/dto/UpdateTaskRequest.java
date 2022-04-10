@@ -8,5 +8,4 @@ public class UpdateTaskRequest {
     private String taskDescription;
     private Person responsiblePerson;
     private String taskStatus;
-
 }

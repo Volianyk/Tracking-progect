@@ -1,13 +1,12 @@
 package com.job.tracking.dto;
 
-import com.job.tracking.model.Person;
 import lombok.Data;
 
 @Data
 public class TaskResponse {
     private String taskDescription;
-    private Person creator;
-    private Person responsiblePerson;
+    private PersonDTO creator;
+    private PersonDTO responsiblePerson;
     private String taskStatus;
     private Integer taskNumber;
 }

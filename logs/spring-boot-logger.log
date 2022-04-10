@@ -1,97 +1,75 @@
-2022-04-09 14:13:29,580 INFO org.springframework.boot.StartupInfoLogger [main] Starting JobTrackingApiApplication using Java 11.0.14 on DESKTOP-KP05FBI with PID 7144 (C:\Users\wrspc\Documents\Project\Tracking-progect\target\classes started by wrspc in C:\Users\wrspc\Documents\Project\Tracking-progect)
-2022-04-09 14:13:29,590 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
-2022-04-09 14:13:30,591 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-04-09 14:13:30,750 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 153 ms. Found 1 MongoDB repository interfaces.
-2022-04-09 14:13:31,807 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
-2022-04-09 14:13:31,875 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
-2022-04-09 14:13:31,876 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
-2022-04-09 14:13:31,876 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.55]
-2022-04-09 14:13:32,030 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
-2022-04-09 14:13:32,031 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2356 ms
-2022-04-09 14:13:32,412 INFO com.mongodb.diagnostics.logging.SLF4JLogger [main] Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-04-09 14:13:32,560 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='62516a5cbe78d928c2e103d5', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:2, serverValue:14}] to 127.0.0.1:27017
-2022-04-09 14:13:32,560 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62516a5cbe78d928c2e103d5', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:1, serverValue:13}] to 127.0.0.1:27017
-2022-04-09 14:13:32,567 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62516a5cbe78d928c2e103d5', description='null'}-127.0.0.1:27017] Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=75589000}
-2022-04-09 14:13:33,340 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
-2022-04-09 14:13:33,361 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
-2022-04-09 14:13:33,375 INFO org.springframework.boot.StartupInfoLogger [main] Started JobTrackingApiApplication in 5.813 seconds (JVM running for 7.548)
-2022-04-09 14:14:05,589 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-09 14:14:05,589 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
-2022-04-09 14:14:05,590 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
-2022-04-09 14:14:05,762 INFO com.mongodb.diagnostics.logging.SLF4JLogger [http-nio-8080-exec-2] Opened connection [connectionId{localValue:3, serverValue:15}] to 127.0.0.1:27017
-2022-04-09 14:16:01,528 INFO org.springframework.boot.StartupInfoLogger [main] Starting JobTrackingApiApplication using Java 11.0.14 on DESKTOP-KP05FBI with PID 11688 (C:\Users\wrspc\Documents\Project\Tracking-progect\target\classes started by wrspc in C:\Users\wrspc\Documents\Project\Tracking-progect)
-2022-04-09 14:16:01,533 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
-2022-04-09 14:16:02,408 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-04-09 14:16:02,473 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 56 ms. Found 1 MongoDB repository interfaces.
-2022-04-09 14:16:03,149 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
-2022-04-09 14:16:03,159 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
-2022-04-09 14:16:03,159 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
-2022-04-09 14:16:03,160 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.55]
-2022-04-09 14:16:03,266 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
-2022-04-09 14:16:03,266 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1660 ms
-2022-04-09 14:16:03,453 INFO com.mongodb.diagnostics.logging.SLF4JLogger [main] Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-04-09 14:16:04,125 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
-2022-04-09 14:16:04,147 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
-2022-04-09 14:16:04,157 INFO org.springframework.boot.StartupInfoLogger [main] Started JobTrackingApiApplication in 3.368 seconds (JVM running for 3.935)
-2022-04-09 14:16:04,200 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62516af33fccb120276aa31a', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:2, serverValue:17}] to 127.0.0.1:27017
-2022-04-09 14:16:04,200 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='62516af33fccb120276aa31a', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:1, serverValue:16}] to 127.0.0.1:27017
-2022-04-09 14:16:04,201 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62516af33fccb120276aa31a', description='null'}-127.0.0.1:27017] Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=701861600}
-2022-04-09 14:16:20,541 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-09 14:16:20,542 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
-2022-04-09 14:16:20,545 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 2 ms
-2022-04-09 14:16:20,585 INFO com.job.tracking.controller.TasksController [http-nio-8080-exec-1] An INFO Message
-2022-04-09 14:16:20,585 WARN com.job.tracking.controller.TasksController [http-nio-8080-exec-1] A WARN Message
-2022-04-09 14:16:20,585 ERROR com.job.tracking.controller.TasksController [http-nio-8080-exec-1] An ERROR Message
-2022-04-09 14:16:20,661 INFO com.mongodb.diagnostics.logging.SLF4JLogger [http-nio-8080-exec-1] Opened connection [connectionId{localValue:3, serverValue:18}] to 127.0.0.1:27017
-2022-04-09 14:17:33,517 INFO org.springframework.boot.StartupInfoLogger [main] Starting JobTrackingApiApplication using Java 11.0.14 on DESKTOP-KP05FBI with PID 18128 (C:\Users\wrspc\Documents\Project\Tracking-progect\target\classes started by wrspc in C:\Users\wrspc\Documents\Project\Tracking-progect)
-2022-04-09 14:17:33,522 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
-2022-04-09 14:17:34,255 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-04-09 14:17:34,305 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 44 ms. Found 1 MongoDB repository interfaces.
-2022-04-09 14:17:35,014 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
-2022-04-09 14:17:35,029 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
-2022-04-09 14:17:35,030 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
-2022-04-09 14:17:35,030 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.55]
-2022-04-09 14:17:35,149 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
-2022-04-09 14:17:35,149 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1552 ms
-2022-04-09 14:17:35,330 INFO com.mongodb.diagnostics.logging.SLF4JLogger [main] Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-04-09 14:17:35,389 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='62516b4f94e87a4edc0294d5', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:2, serverValue:19}] to 127.0.0.1:27017
-2022-04-09 14:17:35,389 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62516b4f94e87a4edc0294d5', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:1, serverValue:20}] to 127.0.0.1:27017
-2022-04-09 14:17:35,391 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62516b4f94e87a4edc0294d5', description='null'}-127.0.0.1:27017] Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=20704800}
-2022-04-09 14:17:35,962 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
-2022-04-09 14:17:35,986 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
-2022-04-09 14:17:35,996 INFO org.springframework.boot.StartupInfoLogger [main] Started JobTrackingApiApplication in 3.209 seconds (JVM running for 3.782)
-2022-04-09 14:17:42,074 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-09 14:17:42,074 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
-2022-04-09 14:17:42,075 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
-2022-04-09 14:17:42,123 INFO com.job.tracking.controller.TasksController [http-nio-8080-exec-1] Get task by task number: 4
-2022-04-09 14:17:42,124 WARN com.job.tracking.controller.TasksController [http-nio-8080-exec-1] A WARN Message
-2022-04-09 14:17:42,124 ERROR com.job.tracking.controller.TasksController [http-nio-8080-exec-1] An ERROR Message
-2022-04-09 14:17:42,194 INFO com.mongodb.diagnostics.logging.SLF4JLogger [http-nio-8080-exec-1] Opened connection [connectionId{localValue:3, serverValue:21}] to 127.0.0.1:27017
-2022-04-09 14:21:34,827 INFO org.springframework.boot.StartupInfoLogger [main] Starting JobTrackingApiApplication using Java 11.0.14 on DESKTOP-KP05FBI with PID 14680 (C:\Users\wrspc\Documents\Project\Tracking-progect\target\classes started by wrspc in C:\Users\wrspc\Documents\Project\Tracking-progect)
-2022-04-09 14:21:34,835 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
-2022-04-09 14:21:35,662 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-04-09 14:21:35,718 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 50 ms. Found 1 MongoDB repository interfaces.
-2022-04-09 14:21:36,437 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
-2022-04-09 14:21:36,453 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
-2022-04-09 14:21:36,454 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
-2022-04-09 14:21:36,454 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.55]
-2022-04-09 14:21:36,574 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
-2022-04-09 14:21:36,574 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1668 ms
-2022-04-09 14:21:36,752 INFO com.mongodb.diagnostics.logging.SLF4JLogger [main] Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-04-09 14:21:36,810 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62516c4041d28879ce8794e7', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:1, serverValue:23}] to 127.0.0.1:27017
-2022-04-09 14:21:36,810 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='62516c4041d28879ce8794e7', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:2, serverValue:22}] to 127.0.0.1:27017
-2022-04-09 14:21:36,813 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62516c4041d28879ce8794e7', description='null'}-127.0.0.1:27017] Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=18407200}
-2022-04-09 14:21:37,388 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
-2022-04-09 14:21:37,411 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
-2022-04-09 14:21:37,422 INFO org.springframework.boot.StartupInfoLogger [main] Started JobTrackingApiApplication in 3.316 seconds (JVM running for 3.838)
-2022-04-09 14:21:48,295 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-04-09 14:21:48,295 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
-2022-04-09 14:21:48,296 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 0 ms
-2022-04-09 14:21:48,322 INFO com.job.tracking.controller.TasksController [http-nio-8080-exec-1] Get all tasks
-2022-04-09 14:21:48,376 INFO com.mongodb.diagnostics.logging.SLF4JLogger [http-nio-8080-exec-1] Opened connection [connectionId{localValue:3, serverValue:24}] to 127.0.0.1:27017
-2022-04-09 14:25:07,142 INFO com.job.tracking.controller.TasksController [http-nio-8080-exec-5] New task was created
-2022-04-09 14:25:42,666 INFO com.job.tracking.controller.TasksController [http-nio-8080-exec-6] Task with number: 3 was updated
-2022-04-09 14:26:04,480 INFO com.job.tracking.controller.TasksController [http-nio-8080-exec-7] Task with number: 6 was deleted
-2022-04-09 14:26:27,363 INFO com.job.tracking.controller.TasksController [http-nio-8080-exec-8] Get task by task number: 4
-2022-04-09 14:26:27,363 WARN com.job.tracking.controller.TasksController [http-nio-8080-exec-8] A WARN Message
-2022-04-09 14:26:27,364 ERROR com.job.tracking.controller.TasksController [http-nio-8080-exec-8] An ERROR Message
+2022-04-10 10:59:12,711 INFO org.springframework.boot.StartupInfoLogger [main] Starting JobTrackingApiApplication using Java 11.0.14 on DESKTOP-KP05FBI with PID 7984 (C:\Users\wrspc\Documents\Project\Tracking-progect\target\classes started by wrspc in C:\Users\wrspc\Documents\Project\Tracking-progect)
+2022-04-10 10:59:12,729 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-04-10 10:59:13,463 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-04-10 10:59:13,544 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 72 ms. Found 1 MongoDB repository interfaces.
+2022-04-10 10:59:14,373 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-04-10 10:59:14,389 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-04-10 10:59:14,390 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-04-10 10:59:14,390 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-04-10 10:59:14,725 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-04-10 10:59:14,725 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1939 ms
+2022-04-10 10:59:14,999 INFO com.mongodb.diagnostics.logging.SLF4JLogger [main] Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-04-10 10:59:15,113 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='62528e52cb42c15158e9fe54', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:2, serverValue:77}] to 127.0.0.1:27017
+2022-04-10 10:59:15,113 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62528e52cb42c15158e9fe54', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:1, serverValue:76}] to 127.0.0.1:27017
+2022-04-10 10:59:15,116 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62528e52cb42c15158e9fe54', description='null'}-127.0.0.1:27017] Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=35843800}
+2022-04-10 10:59:15,741 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2022-04-10 10:59:15,764 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-10 10:59:15,776 INFO org.springframework.boot.StartupInfoLogger [main] Started JobTrackingApiApplication in 7.683 seconds (JVM running for 10.441)
+2022-04-10 11:00:21,554 INFO org.springframework.boot.StartupInfoLogger [main] Starting JobTrackingApiApplicationTests using Java 11.0.14 on DESKTOP-KP05FBI with PID 1892 (started by wrspc in C:\Users\wrspc\Documents\Project\Tracking-progect)
+2022-04-10 11:00:21,555 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-04-10 11:00:22,232 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-04-10 11:00:22,291 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 53 ms. Found 1 MongoDB repository interfaces.
+2022-04-10 11:00:23,048 INFO com.mongodb.diagnostics.logging.SLF4JLogger [main] Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-04-10 11:00:23,236 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62528e97542f1e52f3ea750f', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:1, serverValue:79}] to 127.0.0.1:27017
+2022-04-10 11:00:23,237 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='62528e97542f1e52f3ea750f', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:2, serverValue:78}] to 127.0.0.1:27017
+2022-04-10 11:00:23,240 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62528e97542f1e52f3ea750f', description='null'}-127.0.0.1:27017] Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=128761600}
+2022-04-10 11:00:24,804 INFO org.springframework.boot.StartupInfoLogger [main] Started JobTrackingApiApplicationTests in 3.739 seconds (JVM running for 6.239)
+2022-04-10 11:00:50,038 INFO org.springframework.boot.StartupInfoLogger [main] Starting JobTrackingApiApplication using Java 11.0.14 on DESKTOP-KP05FBI with PID 4412 (C:\Users\wrspc\Documents\Project\Tracking-progect\target\classes started by wrspc in C:\Users\wrspc\Documents\Project\Tracking-progect)
+2022-04-10 11:00:50,044 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-04-10 11:00:50,655 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-04-10 11:00:50,707 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 47 ms. Found 1 MongoDB repository interfaces.
+2022-04-10 11:00:51,477 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-04-10 11:00:51,497 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-04-10 11:00:51,498 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-04-10 11:00:51,498 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-04-10 11:00:51,619 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-04-10 11:00:51,619 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1519 ms
+2022-04-10 11:00:51,836 INFO com.mongodb.diagnostics.logging.SLF4JLogger [main] Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-04-10 11:00:51,958 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='62528eb3f4a74b782e6857a7', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:2, serverValue:81}] to 127.0.0.1:27017
+2022-04-10 11:00:51,958 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62528eb3f4a74b782e6857a7', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:1, serverValue:80}] to 127.0.0.1:27017
+2022-04-10 11:00:51,960 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='62528eb3f4a74b782e6857a7', description='null'}-127.0.0.1:27017] Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=75045100}
+2022-04-10 11:00:52,564 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2022-04-10 11:00:52,586 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-10 11:00:53,461 INFO org.springframework.boot.StartupInfoLogger [main] Started JobTrackingApiApplication in 4.105 seconds (JVM running for 4.947)
+2022-04-10 11:04:26,636 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-10 11:04:26,637 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2022-04-10 11:04:26,638 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2022-04-10 11:04:55,887 INFO com.job.tracking.controller.TasksController [http-nio-8080-exec-2] Get all tasks
+2022-04-10 11:04:56,043 INFO com.mongodb.diagnostics.logging.SLF4JLogger [http-nio-8080-exec-2] Opened connection [connectionId{localValue:3, serverValue:82}] to 127.0.0.1:27017
+2022-04-10 11:05:31,051 INFO com.job.tracking.controller.TasksController [http-nio-8080-exec-3] Get task by task number: 1
+2022-04-10 16:38:31,190 INFO org.springframework.boot.StartupInfoLogger [main] Starting JobTrackingApiApplication using Java 11.0.14 on DESKTOP-KP05FBI with PID 8588 (C:\Users\wrspc\Documents\Project\Tracking-progect\target\classes started by wrspc in C:\Users\wrspc\Documents\Project\Tracking-progect)
+2022-04-10 16:38:31,202 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-04-10 16:38:32,428 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-04-10 16:38:32,540 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 104 ms. Found 1 MongoDB repository interfaces.
+2022-04-10 16:38:33,624 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-04-10 16:38:33,640 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-04-10 16:38:33,641 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-04-10 16:38:33,641 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.55]
+2022-04-10 16:38:33,845 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-04-10 16:38:33,846 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 2517 ms
+2022-04-10 16:38:34,123 INFO com.mongodb.diagnostics.logging.SLF4JLogger [main] Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-04-10 16:38:34,380 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='6252ddda0532c374ebbd80c1', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:1, serverValue:83}] to 127.0.0.1:27017
+2022-04-10 16:38:34,380 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='6252ddda0532c374ebbd80c1', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:2, serverValue:84}] to 127.0.0.1:27017
+2022-04-10 16:38:34,382 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='6252ddda0532c374ebbd80c1', description='null'}-127.0.0.1:27017] Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=188694400}
+2022-04-10 16:38:35,334 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2022-04-10 16:38:35,399 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-10 16:38:35,411 INFO org.springframework.boot.StartupInfoLogger [main] Started JobTrackingApiApplication in 6.684 seconds (JVM running for 8.93)
+2022-04-10 16:39:24,455 INFO org.springframework.boot.StartupInfoLogger [main] Starting JobTrackingApiApplicationTests using Java 11.0.14 on DESKTOP-KP05FBI with PID 17636 (started by wrspc in C:\Users\wrspc\Documents\Project\Tracking-progect)
+2022-04-10 16:39:24,463 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-04-10 16:39:25,169 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-04-10 16:39:25,228 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 54 ms. Found 1 MongoDB repository interfaces.
+2022-04-10 16:39:25,863 INFO com.mongodb.diagnostics.logging.SLF4JLogger [main] Cluster created with settings {hosts=[127.0.0.1:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-04-10 16:39:25,959 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='6252de0dde54a617b32cccb2', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:1, serverValue:86}] to 127.0.0.1:27017
+2022-04-10 16:39:25,959 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-rtt-ClusterId{value='6252de0dde54a617b32cccb2', description='null'}-127.0.0.1:27017] Opened connection [connectionId{localValue:2, serverValue:85}] to 127.0.0.1:27017
+2022-04-10 16:39:25,962 INFO com.mongodb.diagnostics.logging.SLF4JLogger [cluster-ClusterId{value='6252de0dde54a617b32cccb2', description='null'}-127.0.0.1:27017] Monitor thread successfully connected to server with description ServerDescription{address=127.0.0.1:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=13, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=39160700}
+2022-04-10 16:39:28,661 INFO org.springframework.boot.StartupInfoLogger [main] Started JobTrackingApiApplicationTests in 6.0 seconds (JVM running for 7.832)

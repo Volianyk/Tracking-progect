@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+
 
 @RestController
 @Slf4j
@@ -55,7 +57,7 @@ public class TasksController {
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping
-    public void createTask(@RequestBody CreateTaskRequest createTaskRequest) {
+    public void createTask(@RequestBody @Valid CreateTaskRequest createTaskRequest) {
         log.info("New task was created");
 
         taskService.createTask(taskMapper.mapCreateTaskRequestToTask(createTaskRequest));

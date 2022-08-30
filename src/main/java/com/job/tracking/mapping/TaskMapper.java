@@ -34,6 +34,11 @@ public abstract class TaskMapper {
     public abstract Task mapCreateTaskRequestToTask(CreateTaskRequest createTaskRequest);
 
     Integer calculateTaskNumber() {
-        return tasksRepository.findFirstByOrderByTaskNumberDesc().getTaskNumber() + 1;
-            }
+        TaskEntity taskEntityFromRepository = tasksRepository.findFirstByOrderByTaskNumberDesc();
+        if (taskEntityFromRepository!=null){
+            return taskEntityFromRepository.getTaskNumber()+1;
+        }else {
+            return 1;
+        }
+    }
 }

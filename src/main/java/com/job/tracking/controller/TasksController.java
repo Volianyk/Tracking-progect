@@ -10,6 +10,7 @@ import com.job.tracking.service.TaskService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -57,7 +58,7 @@ public class TasksController {
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping
-    public void createTask(@RequestBody @Valid CreateTaskRequest createTaskRequest) {
+    public void createTask(@RequestBody @Validated CreateTaskRequest createTaskRequest) {
         log.info("New task was created");
 
         taskService.createTask(taskMapper.mapCreateTaskRequestToTask(createTaskRequest));
@@ -71,7 +72,7 @@ public class TasksController {
     }
 
     @PutMapping
-    public Task updateTask(@RequestParam Integer taskNumber, @RequestBody UpdateTaskRequest updateTaskRequest) {
+    public Task updateTask(@RequestParam Integer taskNumber, @Valid @RequestBody UpdateTaskRequest updateTaskRequest) {
         log.info("Task with number: " + taskNumber + " was updated");
 
         return taskService.updateTask(taskNumber, updateTaskRequest);

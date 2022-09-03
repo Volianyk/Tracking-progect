@@ -3,15 +3,18 @@ package com.job.tracking.model;
 import lombok.Data;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
 @Data
 public class Person {
-    @NotEmpty(message = "Enter name")
-    @Size(min = 2, max = 30, message = "Enter correct name")
+    @NotBlank(message = "'name' should not be empty")
+    @NotEmpty
+    @NotNull
     private String name;
+
     @Email
     private String email;
-    private String password;
+    //private String password;
 }

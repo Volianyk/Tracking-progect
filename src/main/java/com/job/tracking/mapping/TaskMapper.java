@@ -26,6 +26,7 @@ public abstract class TaskMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "creator", ignore = true)
     @Mapping(target = "taskNumber", ignore = true)
+
     public abstract TaskEntity mapToTaskEntity(@MappingTarget TaskEntity originalEntity, UpdateTaskRequest updateTaskRequest);
 
     public abstract TaskResponse mapToTaskDto(Task task);

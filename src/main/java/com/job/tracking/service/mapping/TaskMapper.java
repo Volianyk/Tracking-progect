@@ -1,9 +1,11 @@
 package com.job.tracking.service.mapping;
 
 import com.job.tracking.controller.dto.CreateTaskRequest;
+import com.job.tracking.controller.dto.PersonDTO;
 import com.job.tracking.controller.dto.TaskResponse;
 import com.job.tracking.controller.dto.UpdateTaskRequest;
 import com.job.tracking.service.entity.TaskEntity;
+import com.job.tracking.service.model.Person;
 import com.job.tracking.service.model.Task;
 import com.job.tracking.service.repository.TasksRepository;
 import org.mapstruct.Mapper;
@@ -36,10 +38,13 @@ public abstract class TaskMapper {
 
     Integer calculateTaskNumber() {
         TaskEntity taskEntityFromRepository = tasksRepository.findFirstByOrderByTaskNumberDesc();
-        if (taskEntityFromRepository!=null){
-            return taskEntityFromRepository.getTaskNumber()+1;
-        }else {
+        if (taskEntityFromRepository != null) {
+            return taskEntityFromRepository.getTaskNumber() + 1;
+        } else {
             return 1;
         }
     }
+
+    @Mapping(target = "password", ignore = true)
+    public abstract Person mapToPerson(PersonDTO personDTO);
 }

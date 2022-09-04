@@ -3,7 +3,7 @@ package com.job.tracking.controller.validation;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class StatusValidator implements ConstraintValidator<StatusDescription, String> {
+public class NoSpacesStatusValidator implements ConstraintValidator<StatusDescription, String> {
     @Override
     public void initialize(StatusDescription taskNumber) {
     }

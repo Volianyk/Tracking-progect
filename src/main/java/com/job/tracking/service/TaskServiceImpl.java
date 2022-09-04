@@ -2,6 +2,7 @@ package com.job.tracking.service;
 
 import com.job.tracking.controller.dto.UpdateTaskRequest;
 import com.job.tracking.service.entity.TaskEntity;
+import com.job.tracking.service.exception.TaskNotFoundException;
 import com.job.tracking.service.mapping.TaskMapper;
 import com.job.tracking.service.model.Task;
 import com.job.tracking.service.repository.TasksRepository;
@@ -32,6 +33,9 @@ public class TaskServiceImpl implements TaskService {
 
     public Task getTask(Integer taskNumber) {
         TaskEntity getOneTask = tasksRepository.findByTaskNumber(taskNumber);
+        if(getOneTask==null){
+            throw new TaskNotFoundException();
+        }
         Task task = taskMapper.mapToTask(getOneTask);
         return task;
     }

@@ -4,18 +4,13 @@ import com.job.tracking.controller.dto.CreateTaskRequest;
 import com.job.tracking.controller.dto.GetTaskResponse;
 import com.job.tracking.controller.dto.TaskResponse;
 import com.job.tracking.controller.dto.UpdateTaskRequest;
+import com.job.tracking.service.TaskService;
 import com.job.tracking.service.mapping.TaskMapper;
 import com.job.tracking.service.model.Task;
-import com.job.tracking.service.TaskService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -60,7 +55,7 @@ public class TasksController {
         return getTaskResponse;
     }
 
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public void createTask(@RequestBody @Valid CreateTaskRequest createTaskRequest) {
         log.info("New task was created");

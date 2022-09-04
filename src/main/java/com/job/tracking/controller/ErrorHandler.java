@@ -1,6 +1,7 @@
 package com.job.tracking.controller;
 
 import com.job.tracking.service.exception.ServiceException;
+import com.job.tracking.service.exception.TaskNotFoundException;
 import com.job.tracking.service.model.Error;
 import com.job.tracking.service.model.enums.ErrorType;
 import lombok.extern.slf4j.Slf4j;
@@ -42,6 +43,15 @@ public class ErrorHandler {
         log.error("handleException: exception {}, method: {}", ex.getMessage(),
                 hm.getMethod().getName(), ex);
         return new Error(ex.getMessage(), ErrorType.FATAL_ERROR_TYPE, LocalDateTime.now());
+
+    }
+
+    @ExceptionHandler(TaskNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Error handleTaskNotFoundException(ServiceException ex, HandlerMethod hm) {
+        log.error("handleTaskNotFoundException: exception {}, method: {}", ex.getMessage(),
+                hm.getMethod().getName(), ex);
+        return new Error(ex.getMessage(), ErrorType.TASK_NOT_FOUND, LocalDateTime.now());
 
     }
 }

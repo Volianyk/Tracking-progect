@@ -1,11 +1,11 @@
-package com.job.tracking.mapping;
+package com.job.tracking.service.mapping;
 
-import com.job.tracking.dto.CreateTaskRequest;
-import com.job.tracking.dto.TaskResponse;
-import com.job.tracking.dto.UpdateTaskRequest;
-import com.job.tracking.entity.TaskEntity;
-import com.job.tracking.model.Task;
-import com.job.tracking.repository.TasksRepository;
+import com.job.tracking.controller.dto.CreateTaskRequest;
+import com.job.tracking.controller.dto.TaskResponse;
+import com.job.tracking.controller.dto.UpdateTaskRequest;
+import com.job.tracking.service.entity.TaskEntity;
+import com.job.tracking.service.model.Task;
+import com.job.tracking.service.repository.TasksRepository;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;

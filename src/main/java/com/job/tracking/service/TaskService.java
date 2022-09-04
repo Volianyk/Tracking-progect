@@ -1,7 +1,7 @@
 package com.job.tracking.service;
 
-import com.job.tracking.dto.UpdateTaskRequest;
-import com.job.tracking.model.Task;
+import com.job.tracking.controller.dto.UpdateTaskRequest;
+import com.job.tracking.service.model.Task;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.job.tracking.model;
+package com.job.tracking.service.model;
 
 public enum StatusEnum {
     DONE,

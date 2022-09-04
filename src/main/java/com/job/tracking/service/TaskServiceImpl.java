@@ -1,10 +1,10 @@
 package com.job.tracking.service;
 
-import com.job.tracking.dto.UpdateTaskRequest;
-import com.job.tracking.entity.TaskEntity;
-import com.job.tracking.mapping.TaskMapper;
-import com.job.tracking.model.Task;
-import com.job.tracking.repository.TasksRepository;
+import com.job.tracking.controller.dto.UpdateTaskRequest;
+import com.job.tracking.service.entity.TaskEntity;
+import com.job.tracking.service.mapping.TaskMapper;
+import com.job.tracking.service.model.Task;
+import com.job.tracking.service.repository.TasksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

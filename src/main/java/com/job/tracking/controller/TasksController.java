@@ -1,17 +1,17 @@
 package com.job.tracking.controller;
 
-import com.job.tracking.dto.CreateTaskRequest;
-import com.job.tracking.dto.GetTaskResponse;
-import com.job.tracking.dto.TaskResponse;
-import com.job.tracking.dto.UpdateTaskRequest;
-import com.job.tracking.mapping.TaskMapper;
-import com.job.tracking.model.Task;
+import com.job.tracking.controller.dto.CreateTaskRequest;
+import com.job.tracking.controller.dto.GetTaskResponse;
+import com.job.tracking.controller.dto.TaskResponse;
+import com.job.tracking.controller.dto.UpdateTaskRequest;
+import com.job.tracking.service.mapping.TaskMapper;
+import com.job.tracking.service.model.Task;
 import com.job.tracking.service.TaskService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -58,7 +58,7 @@ public class TasksController {
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping
-    public void createTask(@RequestBody @Validated CreateTaskRequest createTaskRequest) {
+    public void createTask(@RequestBody @Valid CreateTaskRequest createTaskRequest) {
         log.info("New task was created");
 
         taskService.createTask(taskMapper.mapCreateTaskRequestToTask(createTaskRequest));

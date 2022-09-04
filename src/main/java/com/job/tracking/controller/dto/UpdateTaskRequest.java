@@ -1,6 +1,6 @@
-package com.job.tracking.dto;
+package com.job.tracking.controller.dto;
 
-import com.job.tracking.model.Person;
+import com.job.tracking.controller.validation.StatusDescription;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
@@ -8,12 +8,14 @@ import javax.validation.constraints.Size;
 
 @Data
 public class UpdateTaskRequest {
+
     @NotEmpty(message = "Please enter description")
+    @Size(min = 4, max = 150)
     private String taskDescription;
 
-    private Person responsiblePerson;
+    private PersonDTO responsiblePerson;
 
     @NotEmpty(message = "Please enter status")
-    @Size(min = 4, max = 30)
+    @StatusDescription
     private String taskStatus;
 }

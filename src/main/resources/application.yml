@@ -9,10 +9,10 @@ spring:
       database: JobTracking
       uri: mongodb://127.0.0.1:27017
 management:
- endpoints:
-   web:
-     exposure:
-       include: '*'
- endpoint:
-   health:
-     show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always

@@ -9,12 +9,12 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class PersonDTO {
-    @NotBlank(message = "'name' should not be empty")
-    @NotNull
+    @NotBlank(message = "name should not be blank")
+    @NotNull(message = "name should not be null")
     @NotEmpty(message = "name should not be empty")
     private String name;
 
-    @Email
-    @NotEmpty
+    @NotEmpty(message = "email should not be empty")
+    @Email(message = "{email.notempty}")
     private String email;
 }

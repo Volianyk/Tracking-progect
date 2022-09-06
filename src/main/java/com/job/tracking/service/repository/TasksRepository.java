@@ -1,6 +1,6 @@
-package com.job.tracking.repository;
+package com.job.tracking.service.repository;
 
-import com.job.tracking.entity.TaskEntity;
+import com.job.tracking.service.entity.TaskEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface TasksRepository extends MongoRepository<TaskEntity, String> {

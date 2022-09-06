@@ -1,6 +1,6 @@
-package com.job.tracking.entity;
+package com.job.tracking.service.entity;
 
-import com.job.tracking.model.Person;
+import com.job.tracking.service.model.Person;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

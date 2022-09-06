@@ -1,6 +1,5 @@
 package com.job.tracking.controller;
 
-import com.job.tracking.service.exception.DeletedTaskException;
 import com.job.tracking.service.exception.ServiceException;
 import com.job.tracking.service.exception.TaskNotFoundException;
 import com.job.tracking.service.model.Error;
@@ -56,12 +55,4 @@ public class ErrorHandler {
 
     }
 
-    @ExceptionHandler(DeletedTaskException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public Error handleDeletedException(IllegalArgumentException ex, HandlerMethod hm) {
-        log.error("handleDeletedException: exception {}, method: {}", ex.getMessage(),
-                hm.getMethod().getName(), ex);
-        return new Error(ex.getMessage(), ErrorType.TASK_DOES_NOT_EXIST, LocalDateTime.now());
-
-    }
 }

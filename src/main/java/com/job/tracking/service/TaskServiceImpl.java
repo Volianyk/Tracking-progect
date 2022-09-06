@@ -33,7 +33,7 @@ public class TaskServiceImpl implements TaskService {
 
     public Task getTask(Integer taskNumber) {
         TaskEntity getOneTask = tasksRepository.findByTaskNumber(taskNumber);
-        if(getOneTask==null){
+        if (getOneTask == null) {
             throw new TaskNotFoundException();
         }
         Task task = taskMapper.mapToTask(getOneTask);
@@ -47,11 +47,17 @@ public class TaskServiceImpl implements TaskService {
 
     public void deleteTask(Integer taskNumber) {
         TaskEntity taskToDelete = tasksRepository.findByTaskNumber(taskNumber);
+        if (taskToDelete == null) {
+            throw new TaskNotFoundException();
+        }
         tasksRepository.delete(taskToDelete);
     }
 
     public Task updateTask(Integer taskNumber, UpdateTaskRequest updateTaskRequest) {
         TaskEntity taskToUpdate = tasksRepository.findByTaskNumber(taskNumber);
+        if (taskToUpdate == null) {
+            throw new TaskNotFoundException();
+        }
         TaskEntity updatedTask = taskMapper.mapToTaskEntity(taskToUpdate, updateTaskRequest);
         tasksRepository.save(updatedTask);
         return taskMapper.mapToTask(updatedTask);

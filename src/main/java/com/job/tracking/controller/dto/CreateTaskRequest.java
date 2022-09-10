@@ -1,7 +1,6 @@
 package com.job.tracking.controller.dto;
 
 import com.job.tracking.controller.validation.StatusDescription;
-import com.job.tracking.service.model.Person;
 import lombok.Data;
 
 import javax.validation.Valid;

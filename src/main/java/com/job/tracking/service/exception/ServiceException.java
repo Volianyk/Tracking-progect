@@ -1,6 +1,6 @@
 package com.job.tracking.service.exception;
 
-import com.job.tracking.service.model.enums.ErrorType;
+import com.job.tracking.model.enums.ErrorType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

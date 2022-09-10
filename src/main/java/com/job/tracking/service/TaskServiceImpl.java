@@ -1,11 +1,13 @@
 package com.job.tracking.service;
 
 import com.job.tracking.controller.dto.UpdateTaskRequest;
-import com.job.tracking.service.entity.TaskEntity;
+import com.job.tracking.repository.BillRepository;
+import com.job.tracking.repository.entity.Bill;
+import com.job.tracking.repository.entity.TaskEntity;
 import com.job.tracking.service.exception.TaskNotFoundException;
 import com.job.tracking.service.mapping.TaskMapper;
-import com.job.tracking.service.model.Task;
-import com.job.tracking.service.repository.TasksRepository;
+import com.job.tracking.model.Task;
+import com.job.tracking.repository.TasksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,9 @@ public class TaskServiceImpl implements TaskService {
 
     @Autowired
     private TaskMapper taskMapper;
+
+    @Autowired
+    private BillRepository billRepository;
 
     @Override
     public List<Task> getAllTasks() {
@@ -61,5 +66,19 @@ public class TaskServiceImpl implements TaskService {
         TaskEntity updatedTask = taskMapper.mapToTaskEntity(taskToUpdate, updateTaskRequest);
         tasksRepository.save(updatedTask);
         return taskMapper.mapToTask(updatedTask);
+    }
+
+    public Task completeTask(Integer taskNumber) {
+        TaskEntity task = tasksRepository.findByTaskNumber(taskNumber);
+        if (task == null) {
+            throw new TaskNotFoundException();
+        }
+        task.setTaskStatus("completed");
+        tasksRepository.save(task);
+        Bill bill = new Bill();
+        bill.setAmount("1000");
+        bill.setRecipient(task.getResponsiblePerson().getName());
+        billRepository.save(bill);
+        return taskMapper.mapToTask(task);
     }
 }

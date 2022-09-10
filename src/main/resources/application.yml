@@ -3,6 +3,13 @@ spring:
     mongodb:
       database: JobTracking
       uri: mongodb://127.0.0.1:27017
+  datasource:
+    username: postgres
+    url: jdbc:postgresql://localhost/first_db
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
 management:
   endpoints:
     web:

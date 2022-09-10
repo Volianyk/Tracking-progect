@@ -6,7 +6,7 @@ import com.job.tracking.controller.dto.TaskResponse;
 import com.job.tracking.controller.dto.UpdateTaskRequest;
 import com.job.tracking.service.TaskService;
 import com.job.tracking.service.mapping.TaskMapper;
-import com.job.tracking.service.model.Task;
+import com.job.tracking.model.Task;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -89,5 +89,14 @@ public class TasksController {
         log.info("Task with number: " + taskNumber + " was updated");
 
         return taskService.updateTask(taskNumber, updateTaskRequest);
+    }
+
+
+    @ApiOperation("Update task")
+    @PutMapping(value = "complete")
+    public Task completeTask(@RequestParam Integer taskNumber) {
+        log.info("Task with number: " + taskNumber + "completed");
+
+        return taskService.completeTask(taskNumber);
     }
 }

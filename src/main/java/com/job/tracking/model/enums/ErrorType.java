@@ -1,4 +1,4 @@
-package com.job.tracking.service.model.enums;
+package com.job.tracking.model.enums;
 
 public enum ErrorType {
     VALIDATION_ERROR_TYPE,

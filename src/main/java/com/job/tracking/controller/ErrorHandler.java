@@ -2,8 +2,8 @@ package com.job.tracking.controller;
 
 import com.job.tracking.service.exception.ServiceException;
 import com.job.tracking.service.exception.TaskNotFoundException;
-import com.job.tracking.service.model.Error;
-import com.job.tracking.service.model.enums.ErrorType;
+import com.job.tracking.model.Error;
+import com.job.tracking.model.enums.ErrorType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;

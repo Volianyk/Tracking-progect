@@ -1,9 +1,11 @@
-package com.job.tracking.service;
+package com.job.tracking.service.impl;
 
 import com.job.tracking.controller.dto.UpdateTaskRequest;
+import com.job.tracking.model.enums.TaskStatus;
 import com.job.tracking.repository.BillRepository;
 import com.job.tracking.repository.entity.Bill;
 import com.job.tracking.repository.entity.TaskEntity;
+import com.job.tracking.service.TaskService;
 import com.job.tracking.service.exception.TaskNotFoundException;
 import com.job.tracking.service.mapping.TaskMapper;
 import com.job.tracking.model.Task;
@@ -73,7 +75,7 @@ public class TaskServiceImpl implements TaskService {
         if (task == null) {
             throw new TaskNotFoundException();
         }
-        task.setTaskStatus("completed");
+        task.setTaskStatus(String.valueOf(TaskStatus.APPROVED));
         tasksRepository.save(task);
         Bill bill = new Bill();
         bill.setAmount("1000");

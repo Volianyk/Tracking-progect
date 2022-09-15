@@ -4,6 +4,8 @@ import com.job.tracking.service.exception.ServiceException;
 import com.job.tracking.service.exception.TaskNotFoundException;
 import com.job.tracking.model.Error;
 import com.job.tracking.model.enums.ErrorType;
+import com.job.tracking.service.exception.UserNotFoundException;
+import javassist.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -52,6 +54,14 @@ public class ErrorHandler {
         log.error("handleTaskNotFoundException: exception {}, method: {}", ex.getMessage(),
                 hm.getMethod().getName(), ex);
         return new Error(ex.getMessage(), ErrorType.TASK_NOT_FOUND, LocalDateTime.now());
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public Error handleUserNotFoundException(ServiceException ex, HandlerMethod hm) {
+        log.error("handleUserNotFoundException: exception {}, method: {}", ex.getMessage(),
+                hm.getMethod().getName(), ex);
+        return new Error(ex.getMessage(), ErrorType.USER_NOT_FOUND, LocalDateTime.now());
 
     }
 

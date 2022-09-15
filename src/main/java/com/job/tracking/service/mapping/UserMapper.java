@@ -18,4 +18,6 @@ public abstract class UserMapper {
     public abstract UserEntity mapUsrDtoToUserEntity(UserDto userDto);
 
     public abstract UserDto mapUserToUserDto(UserEntity userEntity);
+
+    public abstract UserEntity populateUserWithPresentUserDtoFields(UserEntity user, UserDto userDto);
 }

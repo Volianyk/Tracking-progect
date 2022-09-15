@@ -1,7 +1,8 @@
 package com.job.tracking.controller;
 
+import com.job.tracking.controller.assembler.UserAssembler;
 import com.job.tracking.controller.dto.UserDto;
-import com.job.tracking.repository.entity.UserEntity;
+import com.job.tracking.model.UserModel;
 import com.job.tracking.service.UserService;
 import com.job.tracking.service.mapping.UserMapper;
 import io.swagger.annotations.Api;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,33 +30,43 @@ public class UserController {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private UserAssembler userAssembler;
+
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/users")
     public List<UserDto> getAllUsers() {
         return userService.getAllUsers();
     }
 
+    @ApiOperation("Get user")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/user/{email}")
-    public UserDto getUser(@PathVariable String email) {
-        return userService.getUser(email);
+    public UserModel getUser(@PathVariable String email) {
+        UserDto outUserDto = userService.getUser(email);
+        return userAssembler.toModel(outUserDto);
     }
 
     @ApiOperation("Create user")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public void createUser(@RequestBody @Validated UserDto userDto) {
-        userService.createUser(userDto);
+    public UserModel createUser(@RequestBody @Validated UserDto userDto) {
+        UserDto outUserDto = userService.createUser(userDto);
+        return userAssembler.toModel(outUserDto);
     }
 
+    @ApiOperation("Update user")
     @ResponseStatus(HttpStatus.OK)
     @PutMapping(value = "/user/{email}")
-    public UserDto updateUser(@PathVariable String email, @RequestBody @Validated UserDto userDto) {
-        return userService.updateUser(email, userDto);
+    public UserModel updateUser(@PathVariable String email, @RequestBody @Validated UserDto userDto) {
+        UserDto outUserDto = userService.updateUser(email, userDto);
+        return userAssembler.toModel(outUserDto);
     }
 
+    @ApiOperation("Delete user")
     @DeleteMapping(value = "/user/{email}")
-    public void deleteUser(@PathVariable String email) {
+    public ResponseEntity<Void> deleteUser(@PathVariable String email) {
         userService.deleteUser(email);
+        return ResponseEntity.noContent().build();
     }
 }

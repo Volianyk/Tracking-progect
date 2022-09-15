@@ -42,9 +42,9 @@ public class UserServiceImpl implements UserService {
     // @Transactional
     public UserDto createUser(UserDto userDto) {
         log.info("creating user");
-        if (userRepository.existByEmail(userDto.getEmail())) {
-            throw new UserNotFoundException();
-        }
+//        if (userRepository.existByEmail(userDto.getEmail())) {
+//            throw new UserNotFoundException();
+//        }
         UserEntity user = userMapper.mapUsrDtoToUserEntity(userDto);
         user = userRepository.save(user);
         return userMapper.mapUserToUserDto(user);

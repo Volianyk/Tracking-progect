@@ -19,5 +19,10 @@ public abstract class UserMapper {
 
     public abstract UserDto mapUserToUserDto(UserEntity userEntity);
 
-    public abstract UserEntity populateUserWithPresentUserDtoFields(UserEntity user, UserDto userDto);
+    public  UserEntity populateUserWithPresentUserDtoFields(UserEntity user, UserDto userDto){
+        String firstName=userDto.getFirstName();
+        String lastName= userDto.getLastName();
+        return user;
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.job.tracking.service;
 
 import com.job.tracking.controller.dto.UserDto;
+import com.job.tracking.repository.entity.UserEntity;
 
 import java.util.List;
 

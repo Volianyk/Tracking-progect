@@ -1,23 +1,25 @@
 package com.job.tracking.controller;
 
-import com.job.tracking.controller.dto.CreateTaskRequest;
 import com.job.tracking.controller.dto.UserDto;
+import com.job.tracking.repository.entity.UserEntity;
 import com.job.tracking.service.UserService;
 import com.job.tracking.service.mapping.UserMapper;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
+@Api(tags = "User management API")
 public class UserController {
 
     @Autowired
@@ -41,14 +43,13 @@ public class UserController {
     @ApiOperation("Create user")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public void createUser(@RequestBody @Valid UserDto userDto) {
-        log.info("New user was created");
+    public void createUser(@RequestBody @Validated UserDto userDto) {
         userService.createUser(userDto);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping(value = "/user/{email}")
-    public UserDto updateUser(@PathVariable String email, @RequestBody UserDto userDto) {
+    public UserDto updateUser(@PathVariable String email, @RequestBody @Validated UserDto userDto) {
         return userService.updateUser(email, userDto);
     }
 

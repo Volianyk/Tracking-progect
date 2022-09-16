@@ -5,6 +5,7 @@ import com.job.tracking.repository.UserRepository;
 import com.job.tracking.repository.entity.UserEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.ReportingPolicy;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,10 +20,9 @@ public abstract class UserMapper {
 
     public abstract UserDto mapUserToUserDto(UserEntity userEntity);
 
-    public  UserEntity populateUserWithPresentUserDtoFields(UserEntity user, UserDto userDto){
-        String firstName=userDto.getFirstName();
-        String lastName= userDto.getLastName();
-        return user;
-    }
+    @Mapping(target = "email", ignore = true)
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "password", ignore = true)
+    public abstract UserEntity populateUserWithPresentUserDtoFields(@MappingTarget UserEntity user, UserDto userDto);
 
 }

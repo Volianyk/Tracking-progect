@@ -1,7 +1,6 @@
 package com.job.tracking.service;
 
 import com.job.tracking.controller.dto.UserDto;
-import com.job.tracking.repository.entity.UserEntity;
 
 import java.util.List;
 
@@ -14,5 +13,5 @@ public interface UserService {
 
     void deleteUser(String email);
 
-    UserDto updateUser(String email, UserDto userDto);
+    UserDto updateUser(UserDto userDto);
 }

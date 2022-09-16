@@ -57,9 +57,9 @@ public class UserController {
 
     @ApiOperation("Update user")
     @ResponseStatus(HttpStatus.OK)
-    @PutMapping(value = "/user/{email}")
-    public UserModel updateUser(@PathVariable String email, @RequestBody @Validated UserDto userDto) {
-        UserDto outUserDto = userService.updateUser(email, userDto);
+    @PutMapping(value = "/user")
+    public UserModel updateUser(@RequestBody @Validated UserDto userDto) {
+        UserDto outUserDto = userService.updateUser(userDto);
         return userAssembler.toModel(outUserDto);
     }
 

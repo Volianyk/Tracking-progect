@@ -28,7 +28,7 @@ public class UserAssembler extends RepresentationModelAssemblerSupport<UserDto, 
 
         Link get = linkTo(methodOn(UserController.class).getUser(entity.getEmail())).withRel(GET_REL);
         Link create = linkTo(methodOn(UserController.class).createUser(entity)).withRel(CREATE_REL);
-        Link update = linkTo(methodOn(UserController.class).updateUser(entity.getEmail(), entity)).
+        Link update = linkTo(methodOn(UserController.class).updateUser(entity)).
                 withRel(UPDATE_USER);
         Link delete = linkTo(methodOn(UserController.class).deleteUser(entity.getEmail())).withRel(DELETE_USER);
         userModel.add(get, update, create, delete);

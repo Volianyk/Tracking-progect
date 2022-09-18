@@ -8,10 +8,8 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends PagingAndSortingRepository<UserEntity, Long> {
-
+//    @Query("SELECT u FROM User u WHERE u.status = 1")
+//    Collection<User> findAllActiveUsers();
     Optional<UserEntity> findByEmail(String email);
-
-//    @Query("SELECT*")
-//    List<UserEntity> getAllUsers();
 
 }

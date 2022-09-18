@@ -1,8 +1,12 @@
 package com.job.tracking.repository;
 
 import com.job.tracking.repository.entity.Bill;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
 
-public interface BillRepository extends JpaRepository<Bill, Long> {
+@Repository
+public interface BillRepository extends PagingAndSortingRepository<Bill, Long> {
 
+    //  @Query("SELECT*")
+    //List<Bill> getAllBills();
 }

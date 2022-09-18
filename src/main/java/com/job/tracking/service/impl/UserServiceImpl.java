@@ -30,14 +30,19 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-
-
     @Override
     public List<UserDto> getAllUsers() {
         List<UserDto> users = new ArrayList<>();
-        List<UserEntity> userEntities = userRepository.findAll(PageRequest.of(1, 5)).toList();
+        Iterable<UserEntity> userEntities = userRepository.findAll();
+        for (UserEntity userEntity : userEntities) {
+            users.add(userMapper.mapUserToUserDto(userEntity));
+        }
+        return users;
+    }
+    @Override
+    public List<UserDto> getAllUsers(Integer from,Integer to) {
+        List<UserDto> users = new ArrayList<>();
+        List<UserEntity> userEntities = userRepository.findAll(PageRequest.of(from, to)).toList();
         for (UserEntity userEntity : userEntities) {
             users.add(userMapper.mapUserToUserDto(userEntity));
         }

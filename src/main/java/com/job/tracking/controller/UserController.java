@@ -1,8 +1,10 @@
 package com.job.tracking.controller;
 
 import com.job.tracking.controller.assembler.UserAssembler;
+import com.job.tracking.controller.dto.BillDto;
 import com.job.tracking.controller.dto.UserDto;
 import com.job.tracking.model.UserModel;
+import com.job.tracking.service.BillService;
 import com.job.tracking.service.UserService;
 import com.job.tracking.service.mapping.UserMapper;
 import io.swagger.annotations.Api;
@@ -33,9 +35,16 @@ public class UserController {
     @Autowired
     private UserAssembler userAssembler;
 
+    @Autowired
+    private BillService billService;
+
+    @ApiOperation("Get all user")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/users")
-    public List<UserDto> getAllUsers() {
+    public List<UserDto> getAllUsers(@RequestParam(required = false) Integer from, @RequestParam(required = false) Integer to) {
+        if (from != null && to != null) {
+            return userService.getAllUsers(from, to);
+        }
         return userService.getAllUsers();
     }
 
@@ -69,4 +78,12 @@ public class UserController {
         userService.deleteUser(email);
         return ResponseEntity.noContent().build();
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(value = "/bills")
+    public List<BillDto> getAllBills() {
+        return billService.getAllRecipient();
+    }
+
+
 }

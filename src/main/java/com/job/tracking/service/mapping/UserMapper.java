@@ -15,14 +15,19 @@ public abstract class UserMapper {
     UserRepository userRepository;
 
     @Mapping(target = "password", ignore = true)
+    @Mapping(target = "paymentProvider.paymentSystem", source = "paymentProvider")
+    @Mapping(target = "paymentProvider.id", ignore = true)
     @Mapping(target = "id", ignore = true)
     public abstract UserEntity mapUsrDtoToUserEntity(UserDto userDto);
 
+    @Mapping(target = "paymentProvider", source = "paymentProvider.paymentSystem")
     public abstract UserDto mapUserToUserDto(UserEntity userEntity);
 
     @Mapping(target = "email", ignore = true)
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "password", ignore = true)
+    @Mapping(target = "paymentProvider.paymentSystem", source = "paymentProvider")
     public abstract UserEntity populateUserWithPresentUserDtoFields(@MappingTarget UserEntity user, UserDto userDto);
+
 
 }

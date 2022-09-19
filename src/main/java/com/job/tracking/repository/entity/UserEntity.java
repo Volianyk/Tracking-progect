@@ -24,4 +24,7 @@ public class UserEntity {
     @Column(nullable = false, unique = true)
     private String email;
     private String password;
+
+    @ManyToOne
+    private PaymentProvider paymentProvider;
 }

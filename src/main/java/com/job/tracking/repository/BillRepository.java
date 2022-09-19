@@ -1,12 +1,17 @@
 package com.job.tracking.repository;
 
 import com.job.tracking.repository.entity.Bill;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface BillRepository extends PagingAndSortingRepository<Bill, Long> {
+import java.util.List;
 
-    //  @Query("SELECT*")
-    //List<Bill> getAllBills();
+@Repository
+public interface BillRepository extends JpaRepository<Bill, Long> {
+
+    @Query(
+            value = "select * from bill where bill.amount = ?1",
+            nativeQuery = true)
+    List<Bill> findBillByAmountNative(String amount);
 }

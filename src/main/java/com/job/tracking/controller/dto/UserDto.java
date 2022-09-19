@@ -19,4 +19,6 @@ public class UserDto {
     @NotEmpty(message = "email should not be empty")
     @Email(message = "{email.notempty}")
     private String email;
+
+    private String paymentProvider;
 }

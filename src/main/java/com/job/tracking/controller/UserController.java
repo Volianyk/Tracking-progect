@@ -85,5 +85,11 @@ public class UserController {
         return billService.getAllRecipient();
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(value = "/bills/{amount}")
+    public List<BillDto> getAllBillsByAmount(@PathVariable String amount) {
+        return billService.getBillsByAmount(amount);
+    }
+
 
 }

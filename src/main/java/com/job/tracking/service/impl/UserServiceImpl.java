@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,16 +37,21 @@ public class UserServiceImpl implements UserService {
         for (UserEntity userEntity : userEntities) {
             users.add(userMapper.mapUserToUserDto(userEntity));
         }
+        log.info("Finding all users");
         return users;
     }
+
     @Override
-    public List<UserDto> getAllUsers(Integer from,Integer to) {
+    public List<UserDto> getAllUsers(Integer from, Integer to) {
         List<UserDto> users = new ArrayList<>();
-        List<UserEntity> userEntities = userRepository.findAll(PageRequest.of(from, to)).toList();
+        List<UserEntity> userEntities = userRepository.findAll(PageRequest.
+                of(from, to, (Sort.by(Sort.Direction.ASC, "lastName")))).toList();
         for (UserEntity userEntity : userEntities) {
             users.add(userMapper.mapUserToUserDto(userEntity));
         }
+        log.info("Finding all users from {} to {}", from, to);
         return users;
+
     }
 
     @Override

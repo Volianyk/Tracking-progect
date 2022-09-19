@@ -8,7 +8,7 @@ import com.job.tracking.service.mapping.BillMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -29,10 +29,24 @@ public class BillServiceImpl implements BillService {
     @Override
     public List<BillDto> getAllRecipient() {
         List<BillDto> recipient = new ArrayList<>();
-        Iterable<Bill> bills = billRepository.findAll(Sort.by(Sort.Direction.ASC, "recipient"));
+        Iterable<Bill> bills = jdbcTemplate.query("select * from bill",
+                new BeanPropertyRowMapper<>(Bill.class));
         for (Bill bill : bills) {
             recipient.add(billMapper.mapBillToBillDto(bill));
         }
+        log.info("Get all bills");
         return recipient;
     }
+
+    @Override
+    public List<BillDto> getBillsByAmount(String amount) {
+        List<BillDto> recipient = new ArrayList<>();
+        Iterable<Bill> bills = billRepository.findBillByAmountNative(amount);
+        for (Bill bill : bills) {
+            recipient.add(billMapper.mapBillToBillDto(bill));
+        }
+        log.info("Get all bills by amount {}", amount);
+        return recipient;
+    }
+
 }

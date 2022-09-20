@@ -11,7 +11,7 @@ import java.util.List;
 public interface BillRepository extends JpaRepository<Bill, Long> {
 
     @Query(
-            value = "select * from bill where bill.amount = ?1",
+            value = "SELECT * FROM bill WHERE bill.amount = ?1 ORDER BY recipient ASC ",
             nativeQuery = true)
     List<Bill> findBillByAmountNative(String amount);
 }

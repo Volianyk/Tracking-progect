@@ -29,7 +29,7 @@ public class BillServiceImpl implements BillService {
     @Override
     public List<BillDto> getAllRecipient() {
         List<BillDto> recipient = new ArrayList<>();
-        Iterable<Bill> bills = jdbcTemplate.query("select * from bill",
+        Iterable<Bill> bills = jdbcTemplate.query("SELECT * FROM bill ORDER BY recipient ASC",
                 new BeanPropertyRowMapper<>(Bill.class));
         for (Bill bill : bills) {
             recipient.add(billMapper.mapBillToBillDto(bill));

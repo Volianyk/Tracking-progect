@@ -14,8 +14,10 @@ public class CreateTaskRequest {
     @Size(min = 5, max = 150, message = "Please enter description")
     @NotEmpty(message = "description should not be empty")
     private String taskDescription;
+
     @Valid
     private PersonDTO creator;
+
     @Valid
     private PersonDTO responsiblePerson;
 

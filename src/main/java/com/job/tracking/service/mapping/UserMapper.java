@@ -14,20 +14,18 @@ public abstract class UserMapper {
     @Autowired
     UserRepository userRepository;
 
-    @Mapping(target = "password", ignore = true)
-    @Mapping(target = "paymentProvider.paymentSystem", source = "paymentProvider")
     @Mapping(target = "paymentProvider.id", ignore = true)
     @Mapping(target = "id", ignore = true)
-    public abstract UserEntity mapUsrDtoToUserEntity(UserDto userDto);
+    public abstract UserEntity mapUserDtoToUserEntity(UserDto userDto);
 
-    @Mapping(target = "paymentProvider", source = "paymentProvider.paymentSystem")
-    public abstract UserDto mapUserToUserDto(UserEntity userEntity);
+    @Mapping(target = "password", ignore = true)
+    @Mapping(target = "repeatPassword", ignore = true)
+    @Mapping(target = "paymentProviderId", ignore = true)
+    public abstract UserDto mapUserEntityToUserDto(UserEntity userEntity);
 
     @Mapping(target = "email", ignore = true)
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "password", ignore = true)
-    @Mapping(target = "paymentProvider.paymentSystem", source = "paymentProvider")
     public abstract UserEntity populateUserWithPresentUserDtoFields(@MappingTarget UserEntity user, UserDto userDto);
-
 
 }

@@ -3,6 +3,7 @@ package com.job.tracking.controller.assembler;
 import com.job.tracking.controller.UserController;
 import com.job.tracking.controller.dto.UserDto;
 import com.job.tracking.model.UserModel;
+import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ public class UserAssembler extends RepresentationModelAssemblerSupport<UserDto, 
     private static final String CREATE_REL = "create_user";
     private static final String UPDATE_USER = "update_user";
     private static final String DELETE_USER = "delete_user";
+    public static final String GET_ALL_USERS = "get_users";
 
 
     public UserAssembler() {
@@ -34,4 +36,5 @@ public class UserAssembler extends RepresentationModelAssemblerSupport<UserDto, 
         userModel.add(get, update, create, delete);
         return userModel;
     }
+
 }

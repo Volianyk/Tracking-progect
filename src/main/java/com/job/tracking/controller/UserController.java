@@ -42,13 +42,14 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/users")
     public List<UserDto> getAllUsers(@RequestParam(required = false) Integer from, @RequestParam(required = false) Integer to) {
+
         if (from != null && to != null) {
-            return userService.getAllUsers(from, to);
+            return userService.getAllUsersByParameter(from, to);
         }
         return userService.getAllUsers();
     }
 
-    @ApiOperation("Get user")
+    @ApiOperation("Get user by email")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/user/{email}")
     public UserModel getUser(@PathVariable String email) {
@@ -79,17 +80,18 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
+    @ApiOperation("Get all bills")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/bills")
     public List<BillDto> getAllBills() {
         return billService.getAllRecipient();
     }
 
+    @ApiOperation("Get all bills by amount")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/bills/{amount}")
     public List<BillDto> getAllBillsByAmount(@PathVariable String amount) {
         return billService.getBillsByAmount(amount);
     }
-
 
 }

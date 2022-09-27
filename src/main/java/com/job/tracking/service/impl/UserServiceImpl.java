@@ -1,9 +1,13 @@
 package com.job.tracking.service.impl;
 
 import com.job.tracking.controller.dto.UserDto;
+import com.job.tracking.repository.PaymentProviderRepository;
 import com.job.tracking.repository.UserRepository;
+import com.job.tracking.repository.entity.PaymentProvider;
 import com.job.tracking.repository.entity.UserEntity;
 import com.job.tracking.service.UserService;
+import com.job.tracking.service.exception.IncorrectRepeatPasswordException;
+import com.job.tracking.service.exception.PaymentSystemNotFoundException;
 import com.job.tracking.service.exception.UserAlreadyExistsException;
 import com.job.tracking.service.exception.UserNotFoundException;
 import com.job.tracking.service.mapping.UserMapper;
@@ -17,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Slf4j
@@ -30,28 +35,31 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Override
-    public List<UserDto> getAllUsers() {
-        List<UserDto> users = new ArrayList<>();
-        Iterable<UserEntity> userEntities = userRepository.findAll();
-        for (UserEntity userEntity : userEntities) {
-            users.add(userMapper.mapUserToUserDto(userEntity));
-        }
-        log.info("Finding all users");
-        return users;
-    }
+    @Autowired
+    private PaymentProviderRepository paymentProviderRepository;
+
 
     @Override
-    public List<UserDto> getAllUsers(Integer from, Integer to) {
+    public List<UserDto> getAllUsersByParameter(Integer from, Integer to) {
         List<UserDto> users = new ArrayList<>();
         List<UserEntity> userEntities = userRepository.findAll(PageRequest.
                 of(from, to, (Sort.by(Sort.Direction.ASC, "lastName")))).toList();
         for (UserEntity userEntity : userEntities) {
-            users.add(userMapper.mapUserToUserDto(userEntity));
+            users.add(userMapper.mapUserEntityToUserDto(userEntity));
         }
         log.info("Finding all users from {} to {}", from, to);
         return users;
+    }
 
+    @Override
+    public List<UserDto> getAllUsers() {
+        List<UserDto> users = new ArrayList<>();
+        List<UserEntity> userEntities = userRepository.findAll((Sort.by(Sort.Direction.ASC, "lastName")));
+        for (UserEntity userEntity : userEntities) {
+            users.add(userMapper.mapUserEntityToUserDto(userEntity));
+        }
+        log.info("Finding all users");
+        return users;
     }
 
     @Override
@@ -59,10 +67,9 @@ public class UserServiceImpl implements UserService {
         log.info("Finding user by {} email...", email);
         UserEntity user = userRepository.findByEmail(email).orElseThrow(UserNotFoundException::new);
         log.info("User with {} email is found", email);
-        return userMapper.mapUserToUserDto(user);
+        return userMapper.mapUserEntityToUserDto(user);
     }
 
-    @Override
     @Transactional
     public UserDto createUser(UserDto userDto) {
         log.info("creating user");
@@ -70,10 +77,17 @@ public class UserServiceImpl implements UserService {
         if (persistedUser.isPresent()) {
             throw new UserAlreadyExistsException();
         }
-        UserEntity user = userMapper.mapUsrDtoToUserEntity(userDto);
-        user = userRepository.save(user);
-        log.info("User with {} email successfully created", user.getEmail());
-        return userMapper.mapUserToUserDto(user);
+        if (!Objects.equals(userDto.getPassword(), userDto.getRepeatPassword())) {
+            throw new IncorrectRepeatPasswordException();
+        }
+        UserEntity userEntity = userMapper.mapUserDtoToUserEntity(userDto);
+        Long paymentProviderId = userDto.getPaymentProviderId();
+        PaymentProvider paymentProvider = paymentProviderRepository
+                .findById(paymentProviderId).orElseThrow(() -> new PaymentSystemNotFoundException());
+        userEntity.setPaymentProvider(paymentProvider);
+        userRepository.save(userEntity);
+        log.info("User with {} email successfully created", userDto.getEmail());
+        return userMapper.mapUserEntityToUserDto(userEntity);
     }
 
     @Override
@@ -82,10 +96,17 @@ public class UserServiceImpl implements UserService {
         log.info("update user");
         UserEntity persistedUser = userRepository.findByEmail(userDto.getEmail())
                 .orElseThrow(UserNotFoundException::new);
+
         persistedUser = userMapper.populateUserWithPresentUserDtoFields(persistedUser, userDto);
+
+        Long paymentProviderId = userDto.getPaymentProviderId();
+        PaymentProvider paymentProvider = paymentProviderRepository
+                .findById(paymentProviderId).orElseThrow(() -> new PaymentSystemNotFoundException());
+        persistedUser.setPaymentProvider(paymentProvider);
+
         UserEntity storedEntity = userRepository.save(persistedUser);
         log.info("User with {} successfully updated", storedEntity.getEmail());
-        return userMapper.mapUserToUserDto(persistedUser);
+        return userMapper.mapUserEntityToUserDto(persistedUser);
     }
 
     @Override
@@ -96,4 +117,5 @@ public class UserServiceImpl implements UserService {
         userRepository.delete(user);
         log.info("User with {} successfully deleted", email);
     }
+
 }

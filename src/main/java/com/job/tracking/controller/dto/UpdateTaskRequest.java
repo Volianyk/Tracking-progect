@@ -13,6 +13,7 @@ public class UpdateTaskRequest {
     @NotEmpty(message = "Please enter description")
     @Size(min = 4, max = 150)
     private String taskDescription;
+
     @Valid
     private PersonDTO responsiblePerson;
 

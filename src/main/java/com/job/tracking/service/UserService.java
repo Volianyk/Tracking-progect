@@ -5,9 +5,10 @@ import com.job.tracking.controller.dto.UserDto;
 import java.util.List;
 
 public interface UserService {
-    List<UserDto> getAllUsers();
 
-    List<UserDto> getAllUsers(Integer from, Integer to);
+    List<UserDto> getAllUsersByParameter(Integer from, Integer to);
+
+    List<UserDto> getAllUsers();
 
     UserDto getUser(String email);
 
@@ -16,4 +17,5 @@ public interface UserService {
     void deleteUser(String email);
 
     UserDto updateUser(UserDto userDto);
+
 }

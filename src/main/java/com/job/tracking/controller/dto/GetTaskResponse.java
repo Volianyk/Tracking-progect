@@ -1,4 +1,4 @@
-package com.job.tracking.dto;
+package com.job.tracking.controller.dto;
 
 import lombok.Data;
 

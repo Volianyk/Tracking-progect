@@ -1,12 +1,14 @@
 package com.job.tracking.controller;
 
-import com.job.tracking.dto.CreateTaskRequest;
-import com.job.tracking.dto.GetTaskResponse;
-import com.job.tracking.dto.TaskResponse;
-import com.job.tracking.dto.UpdateTaskRequest;
-import com.job.tracking.mapping.TaskMapper;
-import com.job.tracking.model.Task;
+import com.job.tracking.controller.dto.CreateTaskRequest;
+import com.job.tracking.controller.dto.GetTaskResponse;
+import com.job.tracking.controller.dto.TaskResponse;
+import com.job.tracking.controller.dto.UpdateTaskRequest;
 import com.job.tracking.service.TaskService;
+import com.job.tracking.service.mapping.TaskMapper;
+import com.job.tracking.model.Task;
+import io.swagger.annotations.*;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,9 +19,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@RestController
 @Slf4j
-@RequestMapping(value = "/tasks")
+@RestController
+@RequestMapping("/api/v1/tasks")
+@RequiredArgsConstructor
+@Api(tags = "Task management API")
+@ApiResponses({
+        @ApiResponse(code = 404, message = "Not found"),
+        @ApiResponse(code = 500, message = "Internal Server Error")
+})
+
 public class TasksController {
 
     @Autowired
@@ -28,6 +37,7 @@ public class TasksController {
     @Autowired
     private TaskService taskService;
 
+    @ApiOperation("Get all tasks")
     @GetMapping
     public @ResponseBody
     GetTaskResponse getAllTasks() {
@@ -44,6 +54,7 @@ public class TasksController {
     }
 
     //here we can get one task
+    @ApiOperation("Get task by task number")
     @GetMapping("/{taskNumber}")
     public @ResponseBody
     GetTaskResponse getTask(@PathVariable Integer taskNumber) {
@@ -55,7 +66,8 @@ public class TasksController {
         return getTaskResponse;
     }
 
-    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("Create task")
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public void createTask(@RequestBody @Valid CreateTaskRequest createTaskRequest) {
         log.info("New task was created");
@@ -63,6 +75,7 @@ public class TasksController {
         taskService.createTask(taskMapper.mapCreateTaskRequestToTask(createTaskRequest));
     }
 
+    @ApiOperation("Delete task")
     @DeleteMapping
     public void deleteTask(@RequestParam Integer taskNumber) {
         log.info("Task with number: " + taskNumber + " was deleted");
@@ -70,10 +83,20 @@ public class TasksController {
         taskService.deleteTask(taskNumber);
     }
 
+    @ApiOperation("Update task")
     @PutMapping
-    public Task updateTask(@RequestParam Integer taskNumber, @RequestBody UpdateTaskRequest updateTaskRequest) {
+    public Task updateTask(@RequestParam Integer taskNumber, @Valid @RequestBody UpdateTaskRequest updateTaskRequest) {
         log.info("Task with number: " + taskNumber + " was updated");
 
         return taskService.updateTask(taskNumber, updateTaskRequest);
+    }
+
+
+    @ApiOperation("Update task")
+    @PutMapping(value = "complete")
+    public Task completeTask(@RequestParam Integer taskNumber) {
+        log.info("Task with number: " + taskNumber + "completed");
+
+        return taskService.completeTask(taskNumber);
     }
 }

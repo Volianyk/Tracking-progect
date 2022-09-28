@@ -1,6 +1,6 @@
 package com.job.tracking.service;
 
-import com.job.tracking.dto.UpdateTaskRequest;
+import com.job.tracking.controller.dto.UpdateTaskRequest;
 import com.job.tracking.model.Task;
 
 import java.util.List;
@@ -15,4 +15,7 @@ public interface TaskService {
     void deleteTask(Integer taskNumber);
 
     Task updateTask(Integer taskNumber, UpdateTaskRequest updateTaskRequest);
+
+    Task completeTask(Integer taskNumber);
+
 }

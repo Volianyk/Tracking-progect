@@ -1,9 +1,11 @@
-package com.job.tracking.mapping;
+package com.job.tracking.service.mapping;
 
-import com.job.tracking.dto.CreateTaskRequest;
-import com.job.tracking.dto.TaskResponse;
-import com.job.tracking.dto.UpdateTaskRequest;
-import com.job.tracking.entity.TaskEntity;
+import com.job.tracking.controller.dto.CreateTaskRequest;
+import com.job.tracking.controller.dto.PersonDTO;
+import com.job.tracking.controller.dto.TaskResponse;
+import com.job.tracking.controller.dto.UpdateTaskRequest;
+import com.job.tracking.repository.entity.TaskEntity;
+import com.job.tracking.model.Person;
 import com.job.tracking.model.Task;
 import com.job.tracking.repository.TasksRepository;
 import org.mapstruct.Mapper;
@@ -26,6 +28,7 @@ public abstract class TaskMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "creator", ignore = true)
     @Mapping(target = "taskNumber", ignore = true)
+
     public abstract TaskEntity mapToTaskEntity(@MappingTarget TaskEntity originalEntity, UpdateTaskRequest updateTaskRequest);
 
     public abstract TaskResponse mapToTaskDto(Task task);
@@ -35,10 +38,13 @@ public abstract class TaskMapper {
 
     Integer calculateTaskNumber() {
         TaskEntity taskEntityFromRepository = tasksRepository.findFirstByOrderByTaskNumberDesc();
-        if (taskEntityFromRepository!=null){
-            return taskEntityFromRepository.getTaskNumber()+1;
-        }else {
+        if (taskEntityFromRepository != null) {
+            return taskEntityFromRepository.getTaskNumber() + 1;
+        } else {
             return 1;
         }
     }
+
+    @Mapping(target = "password", ignore = true)
+    public abstract Person mapToPerson(PersonDTO personDTO);
 }

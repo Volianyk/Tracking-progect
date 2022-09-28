@@ -1,4 +1,4 @@
-package com.job.tracking.entity;
+package com.job.tracking.repository.entity;
 
 import com.job.tracking.model.Person;
 import lombok.Data;

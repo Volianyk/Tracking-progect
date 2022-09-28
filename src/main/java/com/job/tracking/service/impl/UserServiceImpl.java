@@ -101,7 +101,7 @@ public class UserServiceImpl implements UserService {
 
         Long paymentProviderId = userDto.getPaymentProviderId();
         PaymentProvider paymentProvider = paymentProviderRepository
-                .findById(paymentProviderId).orElseThrow(() -> new PaymentSystemNotFoundException());
+                .findById(paymentProviderId).orElseThrow(PaymentSystemNotFoundException::new);
         persistedUser.setPaymentProvider(paymentProvider);
 
         UserEntity storedEntity = userRepository.save(persistedUser);

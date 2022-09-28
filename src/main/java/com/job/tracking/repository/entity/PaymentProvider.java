@@ -1,20 +1,18 @@
 package com.job.tracking.repository.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
-import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PaymentProvider {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,10 +21,8 @@ public class PaymentProvider {
     @Column(unique = true, nullable = false)
     String paymentSystem;
 
-
-//    @OneToMany(mappedBy = "paymentProvider", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @Column(nullable = true)
-//    @JsonIgnore
-//    private List<UserEntity> userEntities;
+    @OneToMany(mappedBy = "paymentProvider", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @Column(nullable = true)
+    private List<UserEntity> userEntities;
 
 }

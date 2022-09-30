@@ -4,10 +4,10 @@ import com.job.tracking.controller.dto.CreateTaskRequest;
 import com.job.tracking.controller.dto.PersonDTO;
 import com.job.tracking.controller.dto.TaskResponse;
 import com.job.tracking.controller.dto.UpdateTaskRequest;
-import com.job.tracking.repository.entity.TaskEntity;
 import com.job.tracking.model.Person;
 import com.job.tracking.model.Task;
 import com.job.tracking.repository.TasksRepository;
+import com.job.tracking.repository.entity.TaskEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -28,7 +28,6 @@ public abstract class TaskMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "creator", ignore = true)
     @Mapping(target = "taskNumber", ignore = true)
-
     public abstract TaskEntity mapToTaskEntity(@MappingTarget TaskEntity originalEntity, UpdateTaskRequest updateTaskRequest);
 
     public abstract TaskResponse mapToTaskDto(Task task);
@@ -45,6 +44,5 @@ public abstract class TaskMapper {
         }
     }
 
-    @Mapping(target = "password", ignore = true)
     public abstract Person mapToPerson(PersonDTO personDTO);
 }

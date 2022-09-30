@@ -1,4 +1,4 @@
-package com.job.tracking.config;
+package com.job.tracking.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

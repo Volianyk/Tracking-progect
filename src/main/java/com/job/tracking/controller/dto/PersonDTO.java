@@ -14,7 +14,7 @@ public class PersonDTO {
     @NotEmpty(message = "name should not be empty")
     private String name;
 
-    @NotEmpty(message = "email should not be empty")
+    @NotEmpty(message = "Email should not be empty")
     @Email(message = "{email.notempty}")
     private String email;
 }
